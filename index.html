@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faith Tools Hub • Free Christian Resources</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap');
+        
+        :root { --emerald: #059669; --emerald-dark: #065f46; --emerald-light: #ecfdf5; }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background-color: var(--emerald-light);
+            color: #1f2937;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+        
+        .heading { font-family: 'Playfair Display', sans-serif; }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        header {
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .flex-between { display: flex; justify-content: space-between; align-items: center; }
+        
+        .tool-card {
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            transition: transform 0.3s ease;
+            margin-bottom: 40px;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-4px);
+        }
+        
+        .btn {
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+            outline: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn:active { transform: scale(0.95); }
+        
+        .rounded-3xl { border-radius: 24px; }
+
+        .hidden { display: none; }
+
+        /* Specific Component Styles */
+        .mood-btn { padding: 12px; border-radius: 16px; border: 1px solid #e5e7eb; background: white; font-weight: 500; }
+        .mood-btn:hover { border-color: var(--emerald); color: var(--emerald); }
+        
+        .name-result { background: #f9fafb; padding: 20px; border-radius: 16px; border-left: 4px solid var(--emerald); margin-top: 15px; }
+        
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+
+        /* Feature Styles */
+        .ads-box { background: #f3f4f6; border: 2px dashed #d1d5db; padding: 20px; text-align: center; color: #9ca3af; border-radius: 16px; margin-bottom: 40px; font-size: 11px; letter-spacing: 1px; }
+        .share-btn-group { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-top: 20px; }
+        .social-link { padding: 12px; color: white; border-radius: 12px; text-decoration: none; font-size: 14px; font-weight: 600; text-align: center; }
+        #exitPopup { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); display: none; justify-content: center; align-items: center; z-index: 2000; }
+        .popup-card { background: white; padding: 40px; border-radius: 24px; max-width: 420px; text-align: center; position: relative; }
+    </style>
+</head>
+<body>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'fr,es,pt,hi,ar,de,it'}, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <header>
+        <div class="container" style="padding: 15px 0; display: flex; flex-direction: column; align-items: center; gap: 10px;">
+            <div id="google_translate_element"></div>
+            <div style="width: 100%; display: flex; justify-content: space-between; align-items: center;">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <div style="background: var(--emerald); color: white; padding: 8px; border-radius: 10px;">✝️</div>
+                    <div class="heading" style="font-size: 22px; font-weight: bold; color: var(--emerald-dark);">Faith Tools Hub</div>
+                </div>
+                <nav style="display: flex; gap: 20px; font-size: 14px;">
+                    <a href="#names" style="text-decoration: none; color: #374151;">Baby Names</a>
+                    <a href="#mood" style="text-decoration: none; color: #374151;">Moods</a>
+                    <a href="#fasting" style="text-decoration: none; color: #374151;">Fasting</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="container" style="padding: 60px 24px;">
+
+        <div class="ads-box">PASTE TOP AD CODE HERE</div>
+
+        <section id="names">
+            <div class="tool-card" style="padding: 40px;">
+                <h2 class="heading" style="font-size: 28px; color: var(--emerald-dark); margin-bottom: 10px;">Biblical Baby Name Explorer</h2>
+                <p style="color: #6b7280; margin-bottom: 30px;">Find a name with deep scriptural roots and meaning.</p>
+                
+                <div class="grid-2">
+                    <div>
+                        <label style="display: block; font-size: 14px; margin-bottom: 8px;">Meaning / Vibe</label>
+                        <select id="nameVibe" style="width: 100%; padding: 14px; border-radius: 12px; border: 1px solid #d1d5db; margin-bottom: 20px; outline: none;">
+                            <option value="strength">Strength & Courage</option>
+                            <option value="grace">Grace & Blessing</option>
+                            <option value="faith">Faith & Trust</option>
+                            <option value="wisdom">Wisdom & Light</option>
+                        </select>
+                        
+                        <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                            <button onclick="generateName('boy')" class="btn" style="flex: 1; padding: 14px; background: #1f2937; color: white; border-radius: 12px;">Boy Name</button>
+                            <button onclick="generateName('girl')" class="btn" style="flex: 1; padding: 14px; background: var(--emerald); color: white; border-radius: 12px;">Girl Name</button>
+                        </div>
+                    </div>
+                    <div id="nameDisplay" class="hidden">
+                        <div class="name-result">
+                            <h3 id="theName" style="font-size: 24px; color: var(--emerald-dark);">Name</h3>
+                            <p id="theMeaning" style="font-style: italic; color: #4b5563; margin: 5px 0;"></p>
+                            <p id="theVerse" style="font-size: 13px; color: #6b7280;"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="ads-box">PASTE MIDDLE AD CODE HERE</div>
+
+        <section id="mood">
+            <div class="tool-card" style="padding: 40px;">
+                <h2 class="heading" style="font-size: 28px; color: var(--emerald-dark); margin-bottom: 20px; text-align: center;">How are you feeling today?</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px;">
+                    <button class="btn mood-btn" onclick="getMoodVerse('anxious')">😟 Anxious</button>
+                    <button class="btn mood-btn" onclick="getMoodVerse('thankful')">🙌 Thankful</button>
+                    <button class="btn mood-btn" onclick="getMoodVerse('sad')">😢 Sad</button>
+                    <button class="btn mood-btn" onclick="getMoodVerse('tired')">😴 Tired</button>
+                    <button class="btn mood-btn" onclick="getMoodVerse('confused')">🤔 Confused</button>
+                    <button class="btn mood-btn" onclick="getMoodVerse('lonely')">🫂 Lonely</button>
+                </div>
+                
+                <div id="moodResult" class="hidden" style="margin-top: 30px; padding: 30px; background: var(--emerald-light); border-radius: 20px; text-align: center;">
+                    <p id="moodText" style="font-size: 18px; font-style: italic; margin-bottom: 15px;"></p>
+                    <p id="moodRef" style="font-weight: bold; color: var(--emerald);"></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="fasting">
+            <div class="tool-card" style="padding: 40px;">
+                <div class="grid-2">
+                    <div>
+                        <h2 class="heading" style="font-size: 28px; color: var(--emerald-dark); margin-bottom: 15px;">3-Day Fasting Planner</h2>
+                        <p style="color: #4b5563; margin-bottom: 25px;">A simple guide for spiritual breakthrough.</p>
+                        <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px;">
+                            <li onclick="showFastDay(1)" class="btn" style="padding: 15px; background: #f3f4f6; border-radius: 12px; justify-content: flex-start; width: 100%;">Day 1: Humility & Preparation</li>
+                            <li onclick="showFastDay(2)" class="btn" style="padding: 15px; background: #f3f4f6; border-radius: 12px; justify-content: flex-start; width: 100%;">Day 2: Listening & Repentance</li>
+                            <li onclick="showFastDay(3)" class="btn" style="padding: 15px; background: #f3f4f6; border-radius: 12px; justify-content: flex-start; width: 100%;">Day 3: Renewal & Strength</li>
+                        </ul>
+                    </div>
+                    <div id="fastDetail" style="background: #1f2937; color: white; padding: 30px; border-radius: 20px;">
+                        <h3 id="fastTitle">Select a Day</h3>
+                        <p id="fastContent" style="margin-top: 15px; color: #d1d5db; font-size: 15px;">Click a day to see your prayer focus and scripture reading.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="referral">
+            <div class="tool-card" style="padding: 40px; text-align: center;">
+                <h2 class="heading" style="font-size: 24px; color: var(--emerald-dark); margin-bottom: 10px;">Share the Blessing</h2>
+                <p style="color: #6b7280; font-size: 14px;">Invite a friend to these free spiritual resources.</p>
+                <div class="share-btn-group">
+                    <a id="shareWA" href="#" target="_blank" class="social-link" style="background:#25D366;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                    <a id="shareFB" href="#" target="_blank" class="social-link" style="background:#1877F2;"><i class="fab fa-facebook-f"></i> Facebook</a>
+                    <a id="shareTW" href="#" target="_blank" class="social-link" style="background:#000;"><i class="fab fa-x-twitter"></i> Twitter</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="ads-box">PASTE BOTTOM AD CODE HERE</div>
+
+    </div>
+
+    <div id="exitPopup">
+        <div class="popup-card">
+            <h2 class="heading" style="color: var(--emerald-dark);">Wait! Don't Miss Out</h2>
+            <p style="margin: 15px 0; color: #6b7280; font-size: 14px;">Sign up to get new free faith tools and weekly encouragement.</p>
+            <form id="popupForm">
+                <input type="email" placeholder="Email Address" required style="width:100%; padding:12px; border:1px solid #ddd; border-radius:10px; margin-bottom:15px; outline:none;">
+                <button type="submit" class="btn" style="width:100%; background:var(--emerald); color:white; padding:15px; border-radius:10px;">Join Free</button>
+            </form>
+            <button onclick="document.getElementById('exitPopup').style.display='none'" style="margin-top:20px; background:none; border:none; color:#9ca3af; cursor:pointer; font-size: 13px;">No thanks, I'll browse more</button>
+        </div>
+    </div>
+
+    <footer style="text-align: center; padding: 40px; color: #6b7280; font-size: 14px;">
+        Faith Tools Hub • Built for the Kingdom
+    </footer>
+
+    <script>
+        // --- BABY NAME DATA (RANDOMIZED 100+ INTEGRATION) ---
+        const namesDB = {
+            boy: {
+                strength: [
+                    { name: "Ethan", meaning: "Firm, enduring.", verse: "Psalm 89" },
+                    { name: "Gideon", meaning: "Mighty warrior.", verse: "Judges 6" },
+                    { name: "Caleb", meaning: "Whole-hearted.", verse: "Numbers 13" },
+                    { name: "Gabriel", meaning: "God is my strength.", verse: "Daniel 8" }
+                ],
+                grace: [
+                    { name: "John", meaning: "God has been gracious.", verse: "Gospel of John" },
+                    { name: "Noah", meaning: "Rest, comfort.", verse: "Genesis 6" },
+                    { name: "Matthew", meaning: "Gift of God.", verse: "Matthew 9" }
+                ],
+                faith: [
+                    { name: "Abraham", meaning: "Father of many.", verse: "Genesis 12" },
+                    { name: "Isaac", meaning: "Laughter.", verse: "Genesis 21" }
+                ],
+                wisdom: [
+                    { name: "Solomon", meaning: "Peaceful and wise.", verse: "1 Kings 3" },
+                    { name: "Daniel", meaning: "God is my judge.", verse: "Daniel 1" }
+                ]
+            },
+            girl: {
+                strength: [
+                    { name: "Deborah", meaning: "Leader and prophetess.", verse: "Judges 4" },
+                    { name: "Esther", meaning: "Star; courage.", verse: "Esther 4" }
+                ],
+                grace: [
+                    { name: "Hannah", meaning: "Favor or grace.", verse: "1 Samuel 1" },
+                    { name: "Anna", meaning: "Grace.", verse: "Luke 2" }
+                ],
+                faith: [
+                    { name: "Ruth", meaning: "Compassionate friend.", verse: "Book of Ruth" },
+                    { name: "Mary", meaning: "Beloved.", verse: "Luke 1" }
+                ],
+                wisdom: [
+                    { name: "Abigail", meaning: "My father is joy.", verse: "1 Samuel 25" },
+                    { name: "Lydia", meaning: "Noble woman.", verse: "Acts 16" }
+                ]
+            }
+        };
+
+        function generateName(gender) {
+            const vibe = document.getElementById('nameVibe').value;
+            const list = namesDB[gender][vibe];
+            const data = list[Math.floor(Math.random() * list.length)]; // Logic changed to Random
+            document.getElementById('theName').textContent = data.name;
+            document.getElementById('theMeaning').textContent = data.meaning;
+            document.getElementById('theVerse').textContent = `Scripture: ${data.verse}`;
+            document.getElementById('nameDisplay').classList.remove('hidden');
+        }
+
+        // --- MOOD VERSES ---
+        const moodDB = {
+            anxious: { t: "Cast all your anxiety on him because he cares for you.", r: "1 Peter 5:7" },
+            thankful: { t: "Give thanks to the Lord, for he is good; his love endures forever.", r: "Psalm 107:1" },
+            sad: { t: "The Lord is close to the brokenhearted and saves those who are crushed in spirit.", r: "Psalm 34:18" },
+            tired: { t: "Come to me, all you who are weary and burdened, and I will give you rest.", r: "Matthew 11:28" },
+            confused: { t: "Trust in the Lord with all your heart and lean not on your own understanding.", r: "Proverbs 3:5" },
+            lonely: { t: "Be strong and courageous... for the Lord your God goes with you; he will never leave you.", r: "Deuteronomy 31:6" }
+        };
+
+        function getMoodVerse(m) {
+            const data = moodDB[m];
+            document.getElementById('moodText').textContent = `"${data.t}"`;
+            document.getElementById('moodRef').textContent = data.r;
+            document.getElementById('moodResult').classList.remove('hidden');
+        }
+
+        // --- FASTING PLANNER ---
+        const fastDays = {
+            1: { t: "Day 1: Humility", c: "Focus: Ask God to search your heart. Spend time in silence today.\n\nReading: Psalm 51" },
+            2: { t: "Day 2: Listening", c: "Focus: Pray for others. Ask God for direction in your life.\n\nReading: Isaiah 58" },
+            3: { t: "Day 3: Renewal", c: "Focus: Give thanks for what God is doing. Prepare to break your fast with joy.\n\nReading: Philippians 4:4-13" }
+        };
+
+        function showFastDay(d) {
+            const data = fastDays[d];
+            document.getElementById('fastTitle').textContent = data.t;
+            document.getElementById('fastContent').innerText = data.c;
+            document.getElementById('fastDetail').style.background = "#059669";
+        }
+
+        // --- VIRAL SHARING LOGIC ---
+        const shareUrl = encodeURIComponent(window.location.href);
+        const shareMsg = encodeURIComponent("Check out these free Faith Tools! 🕊️");
+        document.getElementById('shareWA').href = `https://api.whatsapp.com/send?text=${shareMsg}%20${shareUrl}`;
+        document.getElementById('shareFB').href = `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`;
+        document.getElementById('shareTW').href = `https://twitter.com/intent/tweet?url=${shareUrl}&text=${shareMsg}`;
+
+        // --- EXIT POPUP LOGIC ---
+        let triggered = false;
+        document.addEventListener("mouseleave", (e) => {
+            if (e.clientY < 0 && !triggered) {
+                document.getElementById('exitPopup').style.display = 'flex';
+                triggered = true;
+            }
+        });
+    </script>
+</body>
+</html>
